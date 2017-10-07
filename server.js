@@ -1,3 +1,3 @@
 const express = require('express');
 const methodOverride = require('method-override');
-const bodyParser = require('bodyParser');
+const bodyParser = require('body-parser');
