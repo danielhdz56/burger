@@ -1,5 +1,5 @@
 // Import MySQL connection.
-const connection = require("../connection.js");
+const connection = require("./connection.js");
 
 // Helper function for SQL syntax.
 // In order to write the query, we need 3 question marks.

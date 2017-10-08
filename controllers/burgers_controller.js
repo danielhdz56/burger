@@ -17,10 +17,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  burger.insertOne([
-    "name", "sleepy"
-  ], [
-    req.body.name, req.body.sleepy
+  burger.insertOne(["burger_name"], [
+    req.body.burger_name
   ], () => {
     res.redirect("/");
   });
@@ -32,7 +30,7 @@ router.put("/:id", (req, res) => {
   console.log("condition", condition);
 
   burger.updateOne({
-    sleepy: req.body.sleepy
+    devoured: req.body.devoured
   }, condition, () => {
     res.redirect("/");
   });
