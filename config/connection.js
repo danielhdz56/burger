@@ -6,13 +6,14 @@
 const mysql = require("mysql");
 
 // Set up our connection information
-var connection = mysql.createConnection({
-  port: 3306,
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "burgers_db"
-});
+var env = process.env.NODE_ENV || "development";
+var config = require("./config.json")[env];
+
+if(config.use_env_variable) {
+    var connection = mysql.createConnection(process.env[config.use_env_variable]);
+} else {
+    var connection = mysql.createConnection(config);
+}
 
 // Connect to the database
 connection.connect(function(err) {
